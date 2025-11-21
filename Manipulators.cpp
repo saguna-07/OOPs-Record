@@ -1,9 +1,5 @@
-// manipulators_demo.cpp
 #include <iostream>
-#include <iomanip>   // setw, setfill, setprecision, fixed, scientific, hex, dec, oct
-#include <string>
-
-// A tiny custom manipulator that writes " :: " to the stream
+#include <iomanip>  
 std::ostream& dcolon(std::ostream& os) {
     os << " :: ";
     return os;
@@ -11,20 +7,20 @@ std::ostream& dcolon(std::ostream& os) {
 
 int main() {
     int a = 123;
-    int b = 0xAB;     // 171 decimal
+    int b = 0xAB;    
     double x = 3.14159265;
     bool flag = true;
 
     std::cout << "1) Basic integers and bools:\n";
     std::cout << "   default: " << a << ", bool: " << flag << '\n';
     std::cout << "   boolalpha: " << std::boolalpha << flag << '\n';
-    std::cout << std::noboolalpha; // restore
+    std::cout << std::noboolalpha; 
 
     std::cout << "\n2) Hex / Oct / showbase / uppercase:\n";
     std::cout << "   dec: " << std::dec << b << '\n';
     std::cout << "   hex (no base): " << std::hex << b << '\n';
     std::cout << "   hex with base and uppercase: " << std::showbase << std::uppercase << b << '\n';
-    std::cout << std::dec << std::noshowbase << std::nouppercase; // restore
+    std::cout << std::dec << std::noshowbase << std::nouppercase;
 
     std::cout << "\n3) Width, fill and alignment:\n";
     std::cout << "   default: [" << a << "]\n";
@@ -52,8 +48,8 @@ int main() {
     std::cout << "\n7) Using a custom manipulator:\n";
     std::cout << "   Hello" << dcolon << "World" << '\n';
 
-    // reset floating formatting to default for any later output
     std::cout << std::defaultfloat << std::setprecision(6);
 
     return 0;
 }
+
